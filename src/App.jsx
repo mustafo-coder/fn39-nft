@@ -8,12 +8,14 @@ import Magic from "./components/Magic";
 import HowItWorks from "./components/HowItWorks";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
+import ContactPage from "./components/ContactPage";
 
 const App = () => {
   return (
     <>
       <header>
         <Navbar />
+        <ContactPage />
         <Hero />
       </header>
 
