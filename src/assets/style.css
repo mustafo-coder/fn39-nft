@@ -1,0 +1,46 @@
+.carousel-container {
+  padding: 20px;
+  background-color: #1a1a1a; /* Dark background like in the image */
+  max-width: 300px; /* Adjust width to fit one card */
+  margin: 0 auto;
+}
+
+.category-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  height: 200px; /* Adjust height as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.category-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.category-name {
+  font-size: 16px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Style Swiper navigation arrows */
+.swiper-button-prev,
+.swiper-button-next {
+  color: white;
+}
+
+/* Style Swiper pagination dots */
+.swiper-pagination-bullet {
+  background: white;
+}
