@@ -1,23 +1,29 @@
-import React, { useState } from 'react';
-import '../assets/css'; 
-import artImageSvg from './assets/1rasm.svg';
-import collectiblesImageSvg from './assets/2rasm.svg';
-import musicImageSvg from './assets/3rasm.svg';
-import photographyImageSvg from './assets/4rasm.svg';
-import videoImageSvg from './assets/5rasm.svg';
-import utilityImageSvg from './assets/6rasm.svg';
-import sportImageSvg from './assets/7rasm.svg';
-import virtualWorldsImageSvg from './assets/8rasm.svg';
-import artImagePng from './assets/1rasm.png';
-import collectiblesImagePng from './assets/2rasm.png';
-import musicImagePng from './assets/3rasm.png';
-import photographyImagePng from './assets/4rasm.png';
-import videoImagePng from './assets/5rasm.png';
-import utilityImagePng from './assets/6rasm.png';
-import sportImagePng from './assets/7rasm.png';
-import virtualWorldsImagePng from './assets/8rasm.png';
+import React from 'react';
+import '../assets/style.css'; 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css'; // Import core Swiper styles
+import 'swiper/css/navigation'; // Import navigation module styles
+import 'swiper/css/pagination'; // Import pagination module styles
+import artImageSvg from '../assets/1rasm.svg';
+import collectiblesImageSvg from '../assets/2rasm.svg';
+import musicImageSvg from '../assets/3rasm.svg';
+import photographyImageSvg from '../assets/4rasm.svg';
+import videoImageSvg from '../assets/5rasm.svg';
+import utilityImageSvg from '../assets/6rasm.svg';
+import sportImageSvg from '../assets/7rasm.svg';
+import virtualWorldsImageSvg from '../assets/8rasm.svg';
+import artImagePng from '../assets/1rasm.png';
+import collectiblesImagePng from '../assets/2rasm.png';
+import musicImagePng from '../assets/3rasm.png';
+import photographyImagePng from '../assets/4rasm.png';
+import videoImagePng from '../assets/5rasm.png';
+import utilityImagePng from '../assets/6rasm.png';
+import sportImagePng from '../assets/7rasm.png';
+import virtualWorldsImagePng from '../assets/8rasm.png';
 
-// Array of category objects with SVG icon and PNG background
+// Import Swiper modules
+import { Navigation, Pagination } from 'swiper/modules';
+
 const categories = [
   { name: 'Art', icon: artImageSvg, background: artImagePng },
   { name: 'Collectibles', icon: collectiblesImageSvg, background: collectiblesImagePng },
@@ -30,35 +36,27 @@ const categories = [
 ];
 
 const Categories = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Function to go to the next slide
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === categories.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  // Function to go to the previous slide
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? categories.length - 1 : prevIndex - 1
-    );
-  };
-
   return (
     <div className="carousel-container">
-      <button onClick={prevSlide} className="carousel-btn prev">←</button>
-      <div className="carousel-slide">
-        <div
-          className="category-card"
-          style={{ backgroundImage: `url(${categories[currentIndex].background})` }}
-        >
-          <img src={categories[currentIndex].icon} alt={categories[currentIndex].name} className="category-icon" />
-          <span className="category-name">{categories[currentIndex].name}</span>
-        </div>
-      </div>
-      <button onClick={nextSlide} className="carousel-btn next">→</button>
+      <Swiper
+        spaceBetween={20}
+        slidesPerView={1}
+        navigation // Enable navigation
+        pagination={{ clickable: true }} // Enable pagination
+        modules={[Navigation, Pagination]} // Register modules here
+      >
+        {categories.map((category, index) => (
+          <SwiperSlide key={index}>
+            <div
+              className="category-card"
+              style={{ backgroundImage: `url(${category.background})` }}
+            >
+              <img src={category.icon} alt={category.name} className="category-icon" />
+              <span className="category-name">{category.name}</span>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 };
