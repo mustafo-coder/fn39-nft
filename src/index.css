@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@utility container {
+  padding-inline: 2rem;
+  margin-inline: auto;
+  max-width: 1920px;
+
+  @media (max-width: 768px) {
+    padding-inline: 1rem;
+  }
+}
+
+@theme {
+  --color-primary: #A259FF;
+  --color-secondary: #2B2B2B;
+}
