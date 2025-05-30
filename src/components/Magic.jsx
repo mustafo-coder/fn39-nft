@@ -11,7 +11,10 @@ const Magic = () => {
         <h2 className='font-semibold text-5xl text-white mt-10'>
           Magic Mashrooms
         </h2>
-        <button className='text-black bg-white rounded px-2 py-4'>See NFT</button>
+        <button className='text-black flex items-center gap-3 bg-white rounded pt-6 pl-12 pr-6 pb-6 font-semibold mt-6 rounded-3xl'>
+          <span className='fas fa-eye'></span>
+          See NFT
+        </button>
       </div>
     </div>
   );
